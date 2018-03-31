@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Bot = require('./bot/bot');
 
+const adminserv = require('./services/AdminService');
+
 // const UserService = require('./services/UserService');
 // const MessageService = require('./services/MessageService');
 
@@ -10,6 +12,7 @@ const telegramToken = config.telegram.token;
 mongoose.connect(`mongodb://${config.db.user}:${config.db.password}@ds117759.mlab.com:17759/telegram-bot`, {userMongoClient: true});
 
 Bot.configure(telegramToken);
+console.log(adminserv.getAllUsers());
 
 // const bot = new TelegramBot(telegramToken, {polling: true});
 
